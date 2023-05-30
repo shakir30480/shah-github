@@ -1,32 +1,44 @@
 import "./App.css";
-import { useEffect,useState } from "react";
-
-
-
-
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Navigation from "./components/Navigation";
 
 function App() {
-  const[num,setNum]=useState(0)
+  const [products, setProducts] = useState([]);
 
-  useEffect(()=>{
-    fetch('https://fakestoreapi.com/products/0000000').then( (data)=>{
-      return data.json();
-    }).then( (res)=>{
-        console.log(res)
-       
-    }).catch( (err)=>{
-        console.log(err)
-    })
-  }, [])
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((data) => {
+        return data.json();
+      })
+      .then((res) => {
+        setProducts(res);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-
-
-  fetch().then( () =>{}).then( ()=>{} ).catch( ()=>{ })
   return (
-    <div className="App">
-      <h1>{num}</h1>
-      <button onClick={ ()=>setNum(num +1)}>plus</button>
+   
+   <div>
+    <div className="Container-fluid"><Navigation/></div>
+     <div className="container">
+    
+    <h1>Our Products</h1>
+    <div className="row">
+      {products.map((product) => {
+        return (
+          <div class="col-md-3" style={{ marginBottom: "30px" }}>
+            
+           <Header product={product}/>
+          </div>
+        );
+      })}
     </div>
+  </div>
+   </div>
   );
 }
 
