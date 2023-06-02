@@ -1,7 +1,6 @@
 
 import {  useParams } from 'react-router-dom'
 import { useEffect, useState } from "react";
-import Rater from 'react-rater'
 import 'react-rater/lib/react-rater.css'
 
 function ProductDetails() {

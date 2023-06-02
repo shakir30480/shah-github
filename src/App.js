@@ -11,6 +11,7 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [cart,setCart]=useState([]);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -26,17 +27,26 @@ function App() {
       });
   }, []);
 
+  
+
+  const addToCard=(product)=>{
+    const newAr=[...cart,product];
+    setCart(newAr);
+  }
+  console.log(cart)
+
+
   return (
     <div>
       <div className="Container">
-        <Header />
+        <Header cart={cart} />
 
         <Routes>
-          <Route path="/" element={<Home products={products} />} />
+          <Route path="/" element={<Home addToCard={addToCard} products={products} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/category" element={<Category />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/carts" element={<Carts />} />
+          <Route path="/carts" element={<Carts cart={cart} />} />
         </Routes>
         <Foter />
       </div>

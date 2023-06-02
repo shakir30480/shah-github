@@ -27,7 +27,7 @@ function Category(props) {
         <>
      
         
-        <h1>Our Products</h1>
+        <h1>Our Category</h1>
       <div className="row">
         {
         icategory.map((category) => {

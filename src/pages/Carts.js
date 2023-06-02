@@ -4,7 +4,7 @@ import React from 'react'
 
 
 
-function Carts() {
+function Carts(props) {
   return (
     <div>Carts</div>
   )

@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom"
 import Logo from "../images/ustore.png"
+import Carts from "../pages/Carts"
 
 
 
-function Header() {
+function Header(props) {
   return (
     <div>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,7 +29,7 @@ function Header() {
           <NavLink className="nav-link" to="/ProductDetails" tabindex="-1">ProductDetails</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Carts" tabindex="-1">Carts</NavLink>
+          <NavLink className="nav-link" to="/Carts" tabindex="-1">Carts-{props.cart.length}</NavLink>
         </li>
       </ul>
       <form className="d-flex">

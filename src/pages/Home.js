@@ -17,7 +17,7 @@ function Home(props) {
         return (
           <div class="col-md-3" style={{ marginBottom: "30px" }}>
             
-           <ProductCard product={product} key={product.id}/>
+           <ProductCard cart={props.cart} addToCart={props.addToCard} product={product} key={product.id}/>
           </div>
        
         );

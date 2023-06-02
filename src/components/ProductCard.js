@@ -18,9 +18,9 @@ function ProductCard(props) {
                   <p class="card-text">
                    <h1>${props.product.price}</h1>
                   </p>
-                  <a href="#" class="btn btn-primary">
+                  <button onClick={()=>{props.addToCart(props.product)}} class="btn btn-primary">
                     Order now
-                  </a>
+                  </button>
                   <Link to={`/Product/${props.product.id}`} class="btn btn-primary ms-2">
                     View
                   </Link>
