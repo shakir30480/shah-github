@@ -1,7 +1,13 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
-import Navigation from "./components/Navigation";
+import Foter from "./components/Foter";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import Category from "./pages/Category";
+import Carts from "./pages/Carts";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -13,7 +19,7 @@ function App() {
       })
       .then((res) => {
         setProducts(res);
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -21,24 +27,20 @@ function App() {
   }, []);
 
   return (
-   
-   <div>
-    <div className="Container-fluid"><Navigation/></div>
-     <div className="container">
-    
-    <h1>Our Products</h1>
-    <div className="row">
-      {products.map((product) => {
-        return (
-          <div class="col-md-3" style={{ marginBottom: "30px" }}>
-            
-           <Header product={product}/>
-          </div>
-        );
-      })}
+    <div>
+      <div className="Container">
+        <Header />
+
+        <Routes>
+          <Route path="/" element={<Home products={products} />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/carts" element={<Carts />} />
+        </Routes>
+        <Foter />
+      </div>
     </div>
-  </div>
-   </div>
   );
 }
 
