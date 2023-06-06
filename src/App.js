@@ -8,10 +8,15 @@ import ProductDetails from "./pages/ProductDetails";
 import Category from "./pages/Category";
 import Carts from "./pages/Carts";
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const [products, setProducts] = useState([]);
   const [cart,setCart]=useState([]);
+  const [query, setQuery]=useState("")
+  const [filterproducts,setFilterproduct]=useState([])
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -20,6 +25,7 @@ function App() {
       })
       .then((res) => {
         setProducts(res);
+        setFilterproduct(res)
         // console.log(res);
       })
       .catch((err) => {
@@ -28,25 +34,53 @@ function App() {
   }, []);
 
   
-
+  const notify = () => toast.success("Add a item in cart !");
   const addToCard=(product)=>{
     const newAr=[...cart,product];
     setCart(newAr);
+    notify();
   }
-  console.log(cart)
+
+  const removeToCard=(index)=>{
+    const newAr=cart.toSpliced(index,1)
+    setCart(newAr);
+  }
+
+  const SearchEngin=(search)=>{
+    const newAr=products.filter( (item)=>{
+      return item.title.toLowerCase().includes(search.toLowerCase());
+    });
+    setFilterproduct(newAr)
+  }
+  
 
 
   return (
     <div>
       <div className="Container">
+      
+      <ToastContainer 
+       position= "top-center"
+       autoClose= {500}
+       hideProgressBar= {false}
+       closeOnClick= {false}
+       pauseOnHover= {false}
+       draggable= {false}
+       progress= {undefined}
+       theme= "light"
+      />
         <Header cart={cart} />
+        <div className="col-4 ms-3  ">
+        <input className="form-control" onKeyUp={(e)=>{SearchEngin(e.target.value)}}  placeholder="Search" type="text" />
+        </div>
+        {/* <input type="text" className="col-xs-4" placeholder="Search" onKeyUp={(e)=>{SearchEngin(e.target.value)}} /> */}
 
         <Routes>
-          <Route path="/" element={<Home addToCard={addToCard} products={products} />} />
+          <Route path="/" element={<Home addToCard={addToCard} products={filterproducts} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/category" element={<Category />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/carts" element={<Carts cart={cart} />} />
+          <Route path="/carts" element={<Carts removeToCard={removeToCard} cart={cart} />} />
         </Routes>
         <Foter />
       </div>

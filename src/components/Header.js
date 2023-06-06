@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom"
 import Logo from "../images/ustore.png"
-import Carts from "../pages/Carts"
+
 
 
 
 function Header(props) {
   return (
     <div>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <nav className="navbar navbar-expand-lg navbar-light bg-light" >
   <div className="container-fluid">
     <NavLink className="navbar-brand" to="/"><img src={Logo} className="pic" alt="React Logo" /></NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,12 @@ function Header(props) {
           <NavLink className="nav-link" to="/ProductDetails" tabindex="-1">ProductDetails</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/Carts" tabindex="-1">Carts-{props.cart.length}</NavLink>
+          <NavLink to="/carts" className="nav-link position-relative">
+            Cart
+            <span className="top-0 ms-3 translate-middle badge rounded-pill bg-danger">
+              {props.cart.length}
+            </span>
+          </NavLink>
         </li>
       </ul>
       <form className="d-flex">
