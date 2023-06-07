@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/github.io/shah-github/static/css/main.8f9e3977.css",
+    "main.js": "/github.io/shah-github/static/js/main.e962a536.js",
+    "static/media/electronics.jpg": "/github.io/shah-github/static/media/electronics.478d393e98925c6d918d.jpg",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/github.io/shah-github/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/fontawesome-webfont.eot": "/github.io/shah-github/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/github.io/shah-github/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/github.io/shah-github/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/github.io/shah-github/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/ustore.png": "/github.io/shah-github/static/media/ustore.5acbb7434a5f9ad08fff.png",
+    "index.html": "/github.io/shah-github/index.html",
+    "main.8f9e3977.css.map": "/github.io/shah-github/static/css/main.8f9e3977.css.map",
+    "main.e962a536.js.map": "/github.io/shah-github/static/js/main.e962a536.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f9e3977.css",
+    "static/js/main.e962a536.js"
+  ]
+}
