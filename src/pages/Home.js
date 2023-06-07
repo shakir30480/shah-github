@@ -8,9 +8,13 @@ function Home(props) {
    
     return (
       <>
+      
     <div>
       
       <h1>Our Products</h1>
+      <div className="col-3 ms-3 mb-3">
+        <input className="form-control"  style={{height:"50px"}} onKeyUp={(e)=>{props.SearchEngin(e.target.value)}}  placeholder="Search" type="text" />
+        </div>
     <div className="row">
       {
       props.products.map((product) => {

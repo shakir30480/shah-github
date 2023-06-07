@@ -52,6 +52,11 @@ function App() {
     });
     setFilterproduct(newAr)
   }
+
+  const removeAllCard=(index)=>{
+    const newAr=cart.toSpliced(index)
+    setCart(newAr);
+  }
   
 
 
@@ -70,17 +75,12 @@ function App() {
        theme= "light"
       />
         <Header cart={cart} />
-        <div className="col-4 ms-3  ">
-        <input className="form-control" onKeyUp={(e)=>{SearchEngin(e.target.value)}}  placeholder="Search" type="text" />
-        </div>
-        {/* <input type="text" className="col-xs-4" placeholder="Search" onKeyUp={(e)=>{SearchEngin(e.target.value)}} /> */}
-
         <Routes>
-          <Route path="/" element={<Home addToCard={addToCard} products={filterproducts} />} />
+          <Route path="/" element={<Home SearchEngin={SearchEngin} addToCard={addToCard} products={filterproducts} />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/category" element={<Category />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/carts" element={<Carts removeToCard={removeToCard} cart={cart} />} />
+          <Route path="/carts" element={<Carts removeAllCard={removeAllCard} removeToCard={removeToCard} cart={cart} />} />
         </Routes>
         <Foter />
       </div>

@@ -12,14 +12,17 @@ function Carts(props) {
     return (
       <>
     
-      
+    <button className='btn btn-primary ms-5' onClick={()=>{props.removeAllCard(props.product)}}> Clear All</button>
     <div className="row  bg-info">
+      
       {
       props.cart.map((product) => {
-        {total +=product.price}
+        (total +=product.price)
         return (
           <div>
-      
+
+
+       
        <section className="h-100 h-custom">
   <div className="container py-5 h-100  bg info">
     <div className="row d-flex justify-content-center align-items-center h-100">
